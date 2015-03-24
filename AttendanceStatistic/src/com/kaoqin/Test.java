@@ -41,14 +41,22 @@ public class Test {
 	}
 	private static  void printCurrentDay(String dayStr,String basePath) throws IOException {
 		String yearMonth=dayStr;
-//		String[] nums = {"257","357","390","418","182","181","350"};
 		String[] nums = getNums();
+		StringBuilder sbnotComStr=new StringBuilder("未打开人员：");
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < nums.length; i++) {
-			sb.append(generate(nums[i],yearMonth));
+			String generate = generate(nums[i],yearMonth);
+			if(generate==null||"".equals(generate)){
+				sbnotComStr.append(nums[i]+" ");
+			}
+			sb.append(generate);
 		}
 		String path = basePath+yearMonth.replace("/", "-")+".csv";
 		writeToFile(path, sb.toString());
+		System.out.println("-------------------------------------");
+		System.out.println(sbnotComStr.toString());
+		System.out.println("-------------------------------------");
+		
 	}
 	private static String generate(String num,String yearMonth) throws IOException{
 		while(num.length()<9){
