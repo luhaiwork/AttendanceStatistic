@@ -44,6 +44,7 @@ public class Test {
 		String[] nums = getNums();
 		StringBuilder sbnotComStr=new StringBuilder("未打开人员：");
 		StringBuilder sb = new StringBuilder();
+		sb.append(getTitle());
 		for (int i = 0; i < nums.length; i++) {
 			String generate = generate(nums[i],yearMonth);
 			if(generate==null||"".equals(generate)){
@@ -125,7 +126,13 @@ public class Test {
     	strbf.append(tab);
     	strbf.append(userBean.getUserName());
     	strbf.append(tab);
-    	strbf.append("'"+userBean.getDaytime().replace(tab, " "));
+    	strbf.append(userBean.getDaytime().replace(tab, " "));
+    	strbf.append(tab);
+    	if(userBean.getDaytime()!=null&&userBean.getDaytime().split("  ").length>0){
+    		strbf.append(""+userBean.getDaytime().split("  ")[1]);
+    	}else{
+    		strbf.append("");
+    	}
     	strbf.append(tab);
     	strbf.append("'"+userBean.getDaytimeEnd().replace(tab, " "));
     	strbf.append(tab);
@@ -171,6 +178,8 @@ public class Test {
     	strbf.append("工号");
     	strbf.append(tab);
     	strbf.append("姓名");
+    	strbf.append(tab);
+    	strbf.append("打卡时间日期");
     	strbf.append(tab);
     	strbf.append("打卡时间");
     	strbf.append(tab);
