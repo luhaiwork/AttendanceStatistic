@@ -136,7 +136,7 @@ public class Test {
     	strbf.append(tab);
     	strbf.append(userBean.getDaytimeEnd().replace(tab, " "));
     	strbf.append(tab);
-    	if(userBean.getDaytimeEnd()!=null&&userBean.getDaytimeEnd().split("  ").length>0){
+    	if(userBean.getDaytimeEnd()!=null&&!"".equals(userBean.getDaytimeEnd())&&userBean.getDaytimeEnd().split("  ").length>0){
     		strbf.append(""+userBean.getDaytimeEnd().split("  ")[1]);
     	}else{
     		strbf.append("");
