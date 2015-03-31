@@ -134,7 +134,13 @@ public class Test {
     		strbf.append("");
     	}
     	strbf.append(tab);
-    	strbf.append("'"+userBean.getDaytimeEnd().replace(tab, " "));
+    	strbf.append(userBean.getDaytimeEnd().replace(tab, " "));
+    	strbf.append(tab);
+    	if(userBean.getDaytimeEnd()!=null&&userBean.getDaytimeEnd().split("  ").length>0){
+    		strbf.append(""+userBean.getDaytimeEnd().split("  ")[1]);
+    	}else{
+    		strbf.append("");
+    	}
     	strbf.append(tab);
     	strbf.append(userBean.getRealStartTime());
     	strbf.append(tab);
@@ -182,6 +188,8 @@ public class Test {
     	strbf.append("打卡时间日期");
     	strbf.append(tab);
     	strbf.append("打卡时间");
+    	strbf.append(tab);
+    	strbf.append("下班时间日期");
     	strbf.append(tab);
     	strbf.append("下班时间");
     	strbf.append(tab);
