@@ -53,6 +53,10 @@ public class UserBean {
 	}
 	public int getFixEndTime(){
 		if(getRealEndTime()>12*60&&getRealEndTime()<13*60){
+			//对于早晨晚来的人，如8:37打开，那么12:07走，要算他7分钟的上班时间。
+			if(getFixStartTime()>8.5*60){
+				return (12*60+(getFixStartTime()-(int)(8.5*60)));
+			}
 			return 12*60;
 		}else{
 			return getRealEndTime();
